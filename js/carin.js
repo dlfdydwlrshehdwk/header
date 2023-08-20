@@ -1,4 +1,6 @@
 $(()=>{
+    // header 윗부분 검은색으로 된 슬라이드 
+
     // 스와이퍼 
     var swiper = new Swiper(".mySwiper", {
         slidesPerView: 1, // 화면에 몇장씩 보이게 할거니?
@@ -14,10 +16,9 @@ $(()=>{
           nextEl: ".swiper-button-next", // 다음으로 넘어가게 하는 요소
           prevEl: ".swiper-button-prev", // 이전으로 넘어가게 하는 요소
         },
-        
       });
 
-    //   whiteback open
+    // width 1080 이상일때 nav에 마우스 오버시 흰배경이 펼쳐지는 애니메이션
     $('.whiteopen')
     .hover(
         function(){
@@ -30,9 +31,10 @@ $(()=>{
             $('.whiteback').css({
                 opacity : 0
             })
-            
             $(this).find('.sub-nav').removeClass('on')
         })
+
+    // 서브메뉴 웅앵..
 
 
 
