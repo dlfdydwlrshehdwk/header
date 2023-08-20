@@ -2,9 +2,12 @@
 html{
     font-size: 14px;
 }
-body *{
-    padding: 0;
+html,body,body *{
     margin: 0;
+    padding: 0;
+}
+body{
+    height: 300vh;
 }
 li{
     list-style: none;
@@ -14,6 +17,18 @@ a{
     text-decoration: none;
 }
 /* 초기화 끝 */
+/* 루트값 */
+:root {
+    --header-height : 125px;
+    --header-height-m : 80px;
+    --line-banner-height: 45px;
+    --line-banner-height-m: 30px;
+    --height-without-line-banner-header-m: 50px;
+    --height-without-line-banner: calc(100% - 45px);
+    --height-without-line-banner-m: calc(100% - 30px);
+    --responsive-table-width: 840px;
+    --em-font-color: #352B27;
+}
 /* 헤더 통틀어서 */
 #header {
     max-width: 100%;
@@ -23,7 +38,7 @@ a{
     position: fixed;
     top: 0;
     left: 0;
-    height: 125px
+    height: var(--header-height)
 }
 
 /* 헤더 윗쪽 부분 */
@@ -82,7 +97,7 @@ margin-right: auto;
 .header-bottom .leftbx > ul {
     display: flex;
 }
-.header-bottom .rightbx { 
+.rightbx { 
     display: flex;
 }
 .header-bottom .rightbx > ul {
@@ -123,7 +138,7 @@ margin-right: auto;
 /* 네브 오버시 나오는 흰색창 */
 .whiteback{
     position: fixed;
-    top: 125px;
+    top: var(--header-height);
     left: 0;
     width: 100%;
     height: 190px;
@@ -131,5 +146,81 @@ margin-right: auto;
     transition: .3s;
     opacity: 0;
 }
+
+/* 모바일 셋팅 */
+.mobile { 
+    display: none;
+}
+.sub-nav-mobile { 
+    display: none;
+}
+#aside {
+    position: fixed;
+    top: var(--header-height-m);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: bisque;
+}
+.aside {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.aside-wrap {
+    height: 100%;
+}
+.aside-bottom{
+    margin-bottom: 40px;
+    margin-top: auto;
+}
+.aside-top ul > li {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+.aside-top ul > li > a{
+    display: block;
+    padding: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.aside-middle ul > li > a{
+    display: block;
+    padding: 7px 15px;
+}
+.aside-middle > ul {
+    margin-top: 20px;
+}
+.aside-bottom ul > li > a {
+    display: block;
+    padding: 10px 15px;
+}
+#aside {
+    /* display: none; */
+}
 /* 1080부터 미디어쿼리 */
 /* 헤더 높이 80  */
+@media screen and (max-width : 1080px) {
+    #header {
+        height: var(--header-height-m);
+    }
+    .header-top { 
+        height: 30px;
+    }
+    .header-bottom {
+        height: 50px;
+    }
+    .desktop { 
+        display: none;
+    }
+    .sub-nav{
+        display: none;
+    }
+    .whiteback { 
+        display: none;
+    }
+    .mobile {
+        display: flex;
+    }
+}
+
+/* 스크롤바 지우려면 overflow - hidden 대신 스크롤width만큼 살짝이동함  */
