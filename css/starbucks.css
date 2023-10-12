@@ -3,7 +3,7 @@ html{
   font-size: 10px;
 }
 
-body, h3, h4, p, ul{
+body, h3, h4, h5, p, ul{
   margin: 0;
   padding: 0;
 }
@@ -135,14 +135,46 @@ header{
   color: var(--menufont);
 }
 
-.menu-list_wrap{
-  max-width: 1200px;
-  margin: 0 auto;
+.main-menu li:hover .menu-list_container{
+  display: block;
+}
+
+.menu-list_container{
+  position: fixed;
+  width: 100%;
+  left: 0;
+  background-color: var(--menubg);
+  display: none;
 }
 
 .menu-list{
-  position: fixed;
-  /* display: none; */
-  left: 0;
-  width: 100%;
+  padding: 20px 0;
+  display: flex;
+  gap: 100px;
+}
+
+.menu-list li{
+  color: var(--white);
+}
+
+.menu-list h4{
+  margin-bottom: 20px;
+}
+
+.meun-item li{
+  padding: 5px;
+}
+
+.menu-etc{
+  padding: 40px 0;
+  background-color: var(--gray);
+}
+
+.menu-etc h5{
+  color: var(--menufont);
+}
+
+.menu-etc p{
+  color: var(--white);
+  margin-top: 5px;
 }
